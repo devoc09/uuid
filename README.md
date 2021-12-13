@@ -14,13 +14,13 @@ How to use
 ----------
 
 ```
-$ uuid
+uuid
 ```
 
 if you use macOS
 
 ```
-$ uuid | pbcopy
+uuid | pbcopy
 ```
 
 ```
