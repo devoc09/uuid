@@ -1,6 +1,7 @@
 package main
 
 import (
+	"flag"
 	"fmt"
 	"io"
 	"os"
@@ -18,7 +19,40 @@ type CLI struct {
 	outStream, errStream io.Writer
 }
 
+const usage = `uuid is a tool to generate uuid.
+Usage: 
+    %s [arguments]
+
+Args:
+    -h      Print Help message
+    -v      Print the version of this tool
+`
+
 func (c *CLI) Run(args []string) int {
+	var help, version bool
+
+	flags := flag.NewFlagSet(Name, flag.ContinueOnError)
+	flags.SetOutput(c.errStream)
+	flags.Usage = func() {
+		fmt.Fprintf(c.errStream, usage, Name)
+	}
+	flags.BoolVar(&help, "h", false, "display help message")
+	flags.BoolVar(&version, "v", false, "display the version")
+
+	if err := flags.Parse(args[1:]); err != nil {
+		return ExitCodeParseFlagError
+	}
+
+	if help {
+		flags.Usage()
+		return ExitCodeOk
+	}
+
+	if version {
+		fmt.Fprintf(c.errStream, "%s v%s\n", Name, Version)
+		return ExitCodeOk
+	}
+
 	id, err := uuid.NewRandom()
 	if err != nil {
 		fmt.Fprintf(c.errStream, "uuid generate Error\n")
