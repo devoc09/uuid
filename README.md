@@ -42,6 +42,7 @@ Ex: vim-plug
 Plug 'devoc09/uuid'
 ```
 
+### Command and Keymap
 binary must be placed in $PATH.
 
 -	command
