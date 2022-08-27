@@ -1,26 +1,23 @@
-UUID
-====
+# UUID
 
 A command line tool for generating uuid to Stdout.
 
-Installation
-------------
+## Installation
 
 -	Build from this Sources.
 
 Author's env `go version go1.17 darwin/amd64`
 
-How to use
-----------
+## How to use
 
 ```
-uuid
+$ uuid
 ```
 
 if you use macOS
 
 ```
-uuid | pbcopy
+$ uuid | pbcopy
 ```
 
 ```
@@ -32,3 +29,25 @@ Args:
     -h      Print Help message
     -v      Print the version of this tool
 ```
+
+## Vim plugin
+
+This tool is also available as a vim plugin.
+
+provides command and keymap(normal-mode) for generating UUID.
+
+binary must be placed in $PATH.
+
+-	command
+
+```
+:UUID
+```
+
+-	keymap(normal-mode)
+
+```
+<C-S-u>
+```
+
+these put the UUID after the cursor.
