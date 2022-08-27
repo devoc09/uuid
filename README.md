@@ -36,6 +36,8 @@ This tool is also available as a vim plugin.
 
 provides command and keymap(normal-mode) for generating UUID.
 
+binary must be placed in $PATH.
+
 -	command
 
 ```
