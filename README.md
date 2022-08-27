@@ -36,6 +36,12 @@ This tool is also available as a vim plugin.
 
 provides command and keymap(normal-mode) for generating UUID.
 
+### Installation using plugin manager
+Ex: vim-plug
+```
+Plug 'devoc09/uuid'
+```
+
 binary must be placed in $PATH.
 
 -	command
